@@ -1,0 +1,5 @@
+john=int(3)
+mary=int(5)
+adam=int(6)
+total_apples=(john+mary+adam)
+print=("Total number of apples: ", total_apples)
