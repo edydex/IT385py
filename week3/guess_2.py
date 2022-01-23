@@ -28,6 +28,6 @@ guess_function()
 print("end")
 replay_q = int(input("Do you wish to play again (1), move to the next level (2), \n see leaderboard (3), or quit (4)\n"))
 if replay_q == 1:
-    guess_function
+    guess_function()
 else:
     print("Goodbye")
