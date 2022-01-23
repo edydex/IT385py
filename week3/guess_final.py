@@ -113,7 +113,8 @@ def scores():
     print ("Here you will be able to see your best scores")
     print(Fore.BLUE + "\n", lvl1score, sep="") 
     print(lvl2score)
-    print(lvl3score + Fore.WHITE)
+    print(lvl3score)
+    print("")
 #Game menu:
 print("\nWelcome\n")
 while (menu !=4):
