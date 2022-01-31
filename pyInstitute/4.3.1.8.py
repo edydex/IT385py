@@ -11,18 +11,22 @@ def mo2(yr):
         return 29
     else:
         return 28
-modays = [31,mo2(yr),31, 30,31,30, 31,30,31, 30,31,30]
 def day_of_the_year(yr, mo, da):
-    return (da +mo2(yr))
-    #mocount = 0
-    #modays = [31, mo2, 31]
-    #print([1], [2], [3])
-    #while mo > mocount
-    
+    global doty
+    doty = sum(modays[0:(mo-1)],da)
+    return doty
 
-
-b = mo2(1900)
-c = day_of_the_year(2000, 3, 15)
-d = modays
-print(b)
-print(c)
+test_years = [1900, 2000, 2016, 1987, 2021]
+test_months = [2, 2, 1, 11, 12]
+test_days = [28, 29, 31, 30, 31]
+for i in range(len(test_years)):
+    yr = test_years[i]
+    mo2(yr)
+    mo = test_months[i]
+    modays = [31,mo2(yr),31, 30,31,30, 31,31,30, 31,30,31]
+    da = test_days[i]
+    if (modays[mo-1] >= da):
+        result = day_of_the_year(yr, mo, da)
+        print("The date ",da,"/",mo,"/",yr, " will be ", result, " days from since the year started.", sep="")
+    else:
+        print("Date does't exist")
