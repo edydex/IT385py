@@ -63,7 +63,7 @@ include_symbols()
 randomize = random.sample(all,length)
 password = "".join(randomize)
 
-print("Here is your generated password: ",password)
+print("Here is your generated password: \n",password)
 
 write_file()
 
