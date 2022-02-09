@@ -11,16 +11,16 @@ def get_uptime(remote_ip):
 
     #updating apt and granting sudo privileges:
     child.sendline("sudo apt update")
-    print("command 1 in, give 30 seconds to finish")
+    print("command 1 in, give a minute to finish")
     child.expect("justincase.*") #expecting sudo pass
     child.sendline("Password01") #in this situation its ok to just type ur pass into terminal unprompted
-    time.sleep(20) #must
-    child.expect(".*\$")
+    time.sleep(65) #must do this cause VMs slow
+    #child.expect(".*\$")  tstsrtartsawrstarst
     print("update phase done")
     #desired changes:
     child.sendline("sudo apt install mariadb-server -y") #installing apache (again, takes time)
-    print("command 2 in, 15 sec to finish")
-    time.sleep(15) #must
+    print("command 2 in, 1.5 min to finish") 
+    time.sleep(90) #must
     child.expect(".*\$")
     print("mariadb installed")
     child.sendline("sudo systemctl enable --now mariadb")
