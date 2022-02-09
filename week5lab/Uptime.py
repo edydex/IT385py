@@ -10,4 +10,5 @@ child.expect(".*\$")
 child.sendline("uptime")
 
 child.expect(".*\$")
+print(child.after)
 child.sendline("exit")
