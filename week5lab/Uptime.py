@@ -15,4 +15,5 @@ def get_uptime(remote_ip):
     child.sendline("exit")
 
 ip_addresses = ["192.168.0.121", "192.168.0.122", "192.168.0.111", "192.168.0.112"]
-get_uptime("192.168.0.121")
+for ip_address in ip_addresses:
+    get_uptime(ip_address)
