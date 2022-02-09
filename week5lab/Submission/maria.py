@@ -11,14 +11,14 @@ def get_uptime(remote_ip):
     #updating apt and granting sudo privileges:
     child.sendline("sudo apt update")
     child.expect(".*\:") #expecting sudo pass
+    print("update phase done")
     child.sendline("Password01") #in this situation its ok to just type ur pass into terminal unprompted
     child.expect(".*\$")
-    print("update phase done")
     #desired changes:
     child.sendline("sudo apt install mariadb-server -y") #installing maria (again, takes time)
     child.expect(".*\$")
     print("maria installed")
-    child.sendline("sudo systemctl enable --now mariadb")
+    child.sendline("sudo systemctl enable --now mariadb-server")
     child.expect(".*\$")
     print("mariadb enabled at start and started")
 
