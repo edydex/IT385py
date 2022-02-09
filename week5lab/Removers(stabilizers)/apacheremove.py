@@ -9,7 +9,7 @@ def get_uptime(remote_ip):
     print("login phase done")
     #creating user
     child.expect(".*\$")
-    child.sendline("sudo apt remove apache2")
+    child.sendline("sudo apt remove apache2 -y")
     child.expect(".*\:") #expecting sudo pass
     child.sendline("Password01") #in this situation its ok to just type ur pass into terminal unprompted
     print("removed apache")
