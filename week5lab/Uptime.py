@@ -2,7 +2,7 @@
 
 import pexpect
 
-child = pexpext.spawn("ssh justincase@192.168.0.121")
+child = pexpect.spawn("ssh justincase@192.168.0.121")
 child.expect(".*password:")
 child.sendline("Password01")
 
