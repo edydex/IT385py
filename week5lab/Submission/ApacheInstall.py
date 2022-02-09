@@ -12,9 +12,9 @@ def get_uptime(remote_ip):
     #updating apt and granting sudo privileges:
     child.sendline("sudo apt update")
     print("command 1 in, give 30 seconds to finish")
-    time.sleep(30) #must
     child.expect("justincase.*") #expecting sudo pass
     child.sendline("Password01") #in this situation its ok to just type ur pass into terminal unprompted
+    time.sleep(20) #must
     child.expect(".*\$")
     print("update phase done")
     #desired changes:
