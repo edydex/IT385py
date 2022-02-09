@@ -20,9 +20,9 @@ def get_uptime(remote_ip):
     child.sendline("sudo systemctl enable --now apache2")
     print("Apache enabled at start and started")
 
-    #Hostnames just in case
+    #check for status just in case
     child.expect(".*\$")
-    child.sendline("hostname")
+    child.sendline("sudo systemctl status apache2")
 
     child.expect(".*\$")
     print("\n",child.after,"\n")
