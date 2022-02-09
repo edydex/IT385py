@@ -15,9 +15,10 @@ def get_uptime(remote_ip):
     child.sendline("Password01") #in this situation its ok to just type ur pass into terminal unprompted
     child.expect(".*\$")
     child.sendline("sudo apt install apache2 -y") #installing apache (again, takes time)
-    print("Apache installed")
     child.expect(".*\$")
+    print("Apache installed")
     child.sendline("sudo systemctl enable --now apache2")
+    child.expect(".*\$")
     print("Apache enabled at start and started")
 
     #check for status just in case
