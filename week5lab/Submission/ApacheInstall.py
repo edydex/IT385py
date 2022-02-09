@@ -20,6 +20,7 @@ def get_uptime(remote_ip):
     #desired changes:
     child.sendline("sudo apt install apache2 -y") #installing apache (again, takes time)
     print("command 2 in")
+    time.sleep(10)
     child.expect(".*\$")
     print("apache installed")
     child.sendline("sudo systemctl enable --now apache2")
