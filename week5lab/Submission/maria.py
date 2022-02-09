@@ -15,7 +15,7 @@ def get_uptime(remote_ip):
     child.expect(".*\$")
     print("update phase done")
     #desired changes:
-    child.sendline("sudo apt install mariadb-server -y") #installing apache (again, takes time)
+    child.sendline("sudo apt install mariadb-server -y") #installing maria (again, takes time)
     child.expect(".*\$")
     print("maria installed")
     child.sendline("sudo systemctl enable --now mariadb")
