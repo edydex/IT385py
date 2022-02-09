@@ -22,7 +22,6 @@ def get_uptime(remote_ip):
     print("Apache enabled at start and started")
 
     #check for status just in case
-    child.expect(".*\$")
     child.sendline("hostname")
 
     child.expect(".*\$")
