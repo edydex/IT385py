@@ -9,16 +9,10 @@ def get_uptime(remote_ip):
     print("login phase done")
     #creating user
     child.expect(".*\$")
-    child.sendline("sudo useradd olis")
+    child.sendline("sudo userdel olis")
     child.expect(".*\:") #expecting sudo pass
     child.sendline("Password01") #in this situation its ok to just type ur pass into terminal unprompted
-    child.expect(".*\$")
-    child.sendline("sudo passwd olis")
-    child.expect(".*\:") #expecting to type pass
-    child.sendline("p00p")
-    child.expect(".*\:") #expecting to retype pass
-    child.sendline("p00p")
-    print("useradd phase done")
+    print("userdel phase done")
     #Hostnames just in case
     child.expect(".*\$")
     child.sendline("hostname")

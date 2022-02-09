@@ -7,7 +7,7 @@ def get_uptime(remote_ip):
     child.expect(".*password:")
     child.sendline("Password01")
     print("login phase done")
-    #creating user
+
     child.expect(".*\$")
     child.sendline("sudo useradd olis")
     child.expect(".*\:") #expecting sudo pass
