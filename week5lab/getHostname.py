@@ -2,7 +2,7 @@
 
 from pexpect import pxssh
 
-s = pxssh.pxssh 
+s = pxssh.pxssh()
 hostname = "192.168.0.111"
 username = "justincase"
 password = "Password01"
