@@ -9,10 +9,10 @@ child.sendline("cisco")
 child.expect("Password:")
 child.sendline("cisco")
 
-child.expect("IT385-CSR.*")
+child.expect("IT385-CSR1")
 child.sendline("conf t")
 
-child.expect("IT385-CSR.*")
+child.expect("IT385-CSR1")
 child.sendline("int g2")
 child.expect("IT385-CSR.*")
 child.sendline("ip addr 10.10.10.3 255.255.255.0")
@@ -27,3 +27,4 @@ child.expect("IT385-CSR.*")
 child.sendline("exit")
 child.expect("IT385-CSR.*")
 child.sendline("exit")
+
