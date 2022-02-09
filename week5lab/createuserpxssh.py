@@ -21,7 +21,7 @@ def newuser(hostname):
     s.sendline('p00p')
     s.prompt()
     print("passed password phase")
-    #i guess this works but extremely slow
+    #i guess this works but extremely slow, i assume its because the pxssh is expecting "$" but never gets it in password prompts. (it gets "$" instead)
     s.logout
 
 ip_addresses = ["192.168.0.111"] #"192.168.0.122", "192.168.0.111", "192.168.0.112"]

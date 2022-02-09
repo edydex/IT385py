@@ -27,6 +27,6 @@ def get_uptime(remote_ip):
     print("")
     child.sendline("exit")
 
-ip_addresses = ["192.168.0.111"] #, "192.168.0.122", "192.168.0.111", "192.168.0.112"]
+ip_addresses = ["192.168.0.111", "192.168.0.122", "192.168.0.111", "192.168.0.112"]
 for ip_address in ip_addresses:
     get_uptime(ip_address)
