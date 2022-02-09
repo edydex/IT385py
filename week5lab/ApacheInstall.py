@@ -9,16 +9,17 @@ def get_uptime(remote_ip):
     print("login phase done")
 
     child.expect(".*\$")
-    child.sendline("sudo useradd olis")
+    child.sendline("sudo apt update")
     child.expect(".*\:") #expecting sudo pass
+    print("update phase done")
     child.sendline("Password01") #in this situation its ok to just type ur pass into terminal unprompted
     child.expect(".*\$")
-    child.sendline("sudo passwd olis")
-    child.expect(".*\:") #expecting to type pass
-    child.sendline("p00p")
-    child.expect(".*\:") #expecting to retype pass
-    child.sendline("p00p")
-    print("useradd phase done")
+    child.sendline("sudo apt install apache2 -y") #installing apache (again, takes time)
+    print("Apache installed")
+    child.expect(".*\$")
+    child.sendline("sudo systemctl enable --now apache2")
+    print("Apache enabled at start and started")
+
     #Hostnames just in case
     child.expect(".*\$")
     child.sendline("hostname")
@@ -28,6 +29,6 @@ def get_uptime(remote_ip):
     child.sendline("exit")
 
 
-ip_addresses = ["192.168.0.121", "192.168.0.122", "192.168.0.111", "192.168.0.112"]
+ip_addresses = ["192.168.0.111", "192.168.0.112"]
 for ip_address in ip_addresses:
     get_uptime(ip_address)
