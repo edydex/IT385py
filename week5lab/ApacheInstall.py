@@ -22,7 +22,7 @@ def get_uptime(remote_ip):
 
     #check for status just in case
     child.expect(".*\$")
-    child.sendline("sudo systemctl status apache2")
+    child.sendline("hostname")
 
     child.expect(".*\$")
     print("\n",child.after,"\n")
