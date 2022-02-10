@@ -28,10 +28,7 @@ def get_uptime(remote_ip):
     print("mariadb enabled at start and started")
 
     #check for status just in case
-    child.sendline("hostname")
-    
-    child.expect(".*\$")
-    print("\n",child.after,"\n")
+    print("print i guess done")
     child.sendline("exit")
 
 
