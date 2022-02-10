@@ -29,7 +29,7 @@ def get_uptime(remote_ip):
 
     #check for status just in case
     child.sendline("hostname")
-
+    
     child.expect(".*\$")
     print("\n",child.after,"\n")
     child.sendline("exit")
