@@ -1,1 +1,3 @@
 ansible -i inventory.txt all -m shell -a       'echo $TERM'      -k -u justincase
+
+ansible -i inventory.txt all -m copy -a     'src=/etc/hosts dest=/tmp/hosts'     -k -u justincase
