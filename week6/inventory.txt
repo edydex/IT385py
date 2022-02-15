@@ -11,6 +11,3 @@ web2
 [db]
 db1
 db2
-
-[backup]
-
