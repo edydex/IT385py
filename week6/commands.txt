@@ -1,5 +1,5 @@
 #cd into this directory:
-
+cd ./git/IT385/IT385py/week6/
 
 #execute a command practice 
 ansible -i inventory.txt all -m shell -a       'echo $TERM'      -k -u justincase
