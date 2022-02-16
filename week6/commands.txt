@@ -1,3 +1,11 @@
 ansible -i inventory.txt all -m shell -a       'echo $TERM'      -k -u justincase
 
 ansible -i inventory.txt all -m copy -a     'src=/etc/hosts dest=/tmp/hosts'     -k -u justincase
+
+ansible -i inventory.txt web -m ansible.builtin.apt -a     'name=apache2 state=present'     -k -u justincase --become -K
+
+ansible -i inventory.txt db -m ansible.builtin.apt -a     'name=mariadb-server state=present'     -k -u justincase --become -K
+
+ansible -i inventory.txt db -m ansible.builtin.service -a     'name=mariadb state=started enabled=yes'     -k -u justincase --become -K
+
+ansible -i inventory.txt web -m ansible.builtin.service -a     'name=apache2 state=started enabled=yes'     -k -u justincase --become -K
