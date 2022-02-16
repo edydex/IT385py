@@ -29,7 +29,7 @@ ansible -i inventory.txt all -m ansible.builtin.user -a "name=olis password=p00p
 
 
 #check for mariadb status:
-ssh justin@192.168.0.122 
+ssh justincase@192.168.0.122 
 Password01
 
 systemctl status mariadb 
