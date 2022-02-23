@@ -23,7 +23,7 @@
       name: libapache2-mod-php
       state: absent
       update_cache: yes
-  - name: Start and autortart Apache
+  - name: Stop Apache
     become: yes
     ansible.builtin.service: 
       name: apache2
@@ -52,7 +52,7 @@
       name: mariadb-server
       state: absent
       update_cache: yes
-  - name: Start and autortart Apache
+  - name: Stop Apache
     become: yes
     ansible.builtin.service: 
       name: mariadb
