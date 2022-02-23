@@ -23,6 +23,12 @@
       name: libapache2-mod-php
       state: absent
       update_cache: yes
+  - name: Start and autortart Apache
+    become: yes
+    ansible.builtin.service: 
+      name: apache2
+      state: stopped
+      enabled: yes
   - name: Close Firewall for port 80
     become: yes
     ufw:
