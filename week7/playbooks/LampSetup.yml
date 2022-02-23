@@ -51,6 +51,8 @@
     ansible.builtin.apt:
       name: mariadb-server
       state: present
+      #due to computers being extremely slow sometimes it times out 
+      #(the wait time of apt update and MariaDB install are longer than Ansible is willing to wait)
       update_cache: yes
   - name: Start and autortart Apache
     become: yes
