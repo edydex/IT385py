@@ -46,3 +46,9 @@
       name: mariadb-server
       state: absent
       update_cache: yes
+  - name: Start and autortart Apache
+    become: yes
+    ansible.builtin.service: 
+      name: mariadb
+      state: stopped
+      enabled: yes
