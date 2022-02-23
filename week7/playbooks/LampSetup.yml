@@ -55,7 +55,7 @@
       #(the wait time of apt update and MariaDB install are longer than Ansible is willing to wait)
       #if ran again it will work since the process is going on the background even though Ansible gives an error 
       update_cache: yes
-  - name: Start and autortart Apache
+  - name: Start and autortart MariaDB
     become: yes
     ansible.builtin.service: 
       name: mariadb

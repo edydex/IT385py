@@ -52,7 +52,7 @@
       name: mariadb-server
       state: absent
       update_cache: yes
-  - name: Stop Apache
+  - name: Stop MariaDB
     become: yes
     ansible.builtin.service: 
       name: mariadb
