@@ -20,7 +20,7 @@
   - name: Install PHP module for Apache (P in LAMP)
     become: yes
     ansible.builtin.apt: 
-      name: libapache2-mod-php5 
+      name: apache2-mod-php
       state: present
       update_cache: yes
   - name: Start and autortart Apache
