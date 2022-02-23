@@ -53,6 +53,7 @@
       state: present
       #due to computers being extremely slow sometimes it times out 
       #(the wait time of apt update and MariaDB install are longer than Ansible is willing to wait)
+      #if ran again it will work since the process is going on the background even though Ansible gives an error 
       update_cache: yes
   - name: Start and autortart Apache
     become: yes
