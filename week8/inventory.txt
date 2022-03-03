@@ -30,5 +30,5 @@ CSR1
 CSR2
 
 [routers:vars]
-ansible_host=cisco
+ansible_user=cisco
 ansible_password=cisco
