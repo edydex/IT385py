@@ -14,16 +14,16 @@
     ios_config:
       lines:
       - hostname CSRone1
-    - name: Disable Domain-lookup
+  - name: Disable Domain-lookup
       ios_config:
         lines:
         - no ip domain-lookup
-    - name: Password Setup
+  - name: Password Setup
       ios_config:
         lines:
         - security passwords min-length 10 #Require 10 character passwords
         - service password-encryption #Encrypt al plaintext passwords
-    - name: Banner Setup
+  - name: Banner Setup
       ios_config:
         lines:
         - banner motd $Warning! Words here!$ #Configure banner 
