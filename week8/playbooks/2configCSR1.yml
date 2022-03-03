@@ -1,0 +1,21 @@
+---
+- hosts: csr1
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: Name Devices
+    ios_command:
+      commands:
+      - conf t #whats left is 1,3,8,9
+      - hostname CSRone1 #Naming devices
+      - no ip domain-lookup #Disabling DNS lookup
+      - security passwords min-length 10 #Require 10 character passwords
+      - service password-encryption #Encrypt al plaintext passwords
+      - banner motd $Warning! Words here!$ #Configure banner 
+  - name: Configure G2
+    ios_config:
+      lines:
+      - ipp addr 30.30.30.30 255.255.255.0
+      - description somethinghere
+      - no shut
+      parents: interface Gigabit2
