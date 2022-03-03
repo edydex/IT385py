@@ -1,0 +1,14 @@
+---
+- hosts: CSR2
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: Gatherrunning config
+    ios_command:
+      commands:
+      - conf t
+      - hostname bruh
+      - int G2
+      - ip addr 20.20.20.20 255.255.255.0
+      - desc nothing works idk why
+      - no shut

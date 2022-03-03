@@ -1,5 +1,5 @@
 ---
-- hosts: csr1
+- hosts: CSR1
   gather_facts: false
   connection: local
   tasks:
