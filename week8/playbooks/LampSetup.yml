@@ -1,0 +1,63 @@
+---
+- name: Setup LAMP Stack
+  hosts: linux
+  tasks:
+  - name: Create user "olis"
+    become: yes
+    ansible.builtin.user:
+      name: olas
+      password: "p00p"
+
+- name: Install/Setup Apache
+  hosts: web
+  tasks:
+  - name: Install Apache
+    become: yes
+    ansible.builtin.apt:
+      name: apache2
+      state: present
+      update_cache: yes
+  - name: Install PHP module for Apache (P in LAMP)
+    become: yes
+    ansible.builtin.apt: 
+      name: libapache2-mod-php
+      state: present
+      update_cache: yes
+  - name: Start and autortart Apache
+    become: yes
+    ansible.builtin.service: 
+      name: apache2
+      state: started
+      enabled: yes
+  - name: Open Firewall for port 80
+    become: yes
+    ufw:
+      rule: allow
+      port: '80'
+      proto: tcp
+    notify:
+      - reload-firewall
+  handlers:
+    - name: reload-firewall
+      become: yes
+      ufw:
+        state: reloaded
+
+- name: Install/Setup MariaDB
+  hosts: db
+  tasks:
+  - name: Install MariaDB
+    become: yes
+    ansible.builtin.apt:
+      name: mariadb-server
+      state: present
+      #due to computers being extremely slow sometimes it times out 
+      #(the wait time of apt update and MariaDB install are longer than Ansible is willing to wait)
+      #if ran again it will work since the process is going on the background even though Ansible gives an error 
+      update_cache: yes
+  - name: Start and autortart MariaDB
+    become: yes
+    ansible.builtin.service: 
+      name: mariadb
+      state: started
+      enabled: yes

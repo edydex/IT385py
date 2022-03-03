@@ -1,0 +1,60 @@
+---
+- name: Setup LAMP Stack
+  hosts: linux
+  tasks:
+  - name: Create user "olis"
+    become: yes
+    ansible.builtin.user:
+      name: olas
+      password: "p00p"
+
+- name: Remove Apache
+  hosts: web
+  tasks:
+  - name: Remove Apache
+    become: yes
+    ansible.builtin.apt:
+      name: apache2
+      state: absent
+      update_cache: yes
+  - name: Remove PHP module for Apache (P in LAMP)
+    become: yes
+    ansible.builtin.apt: 
+      name: libapache2-mod-php
+      state: absent
+      update_cache: yes
+  - name: Stop Apache
+    become: yes
+    ansible.builtin.service: 
+      name: apache2
+      state: stopped
+      enabled: yes
+  - name: Close Firewall for port 80
+    become: yes
+    ufw:
+      rule: deny
+      port: '80'
+      proto: tcp
+    notify:
+      - reload-firewall
+  handlers:
+    - name: reload-firewall
+      become: yes
+      ufw:
+        state: reloaded
+
+- name: Remove MariaDB
+  hosts: db
+  tasks:
+  - name: Install MariaDB
+    become: yes
+    ansible.builtin.apt:
+      name: mariadb-server
+      state: absent
+      update_cache: yes
+  - name: Stop MariaDB
+    become: yes
+    ansible.builtin.service: 
+      name: mariadb
+      state: stopped
+      enabled: yes
