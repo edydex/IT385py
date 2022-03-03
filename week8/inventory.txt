@@ -23,3 +23,11 @@ db2
 [linux:vars]
 ansible_user=justincase
 ansible_password=Password01
+
+[cisco]
+csr1
+csr2
+
+[cisco:vars]
+ansible_host=cisco
+ansible_password=cisco
