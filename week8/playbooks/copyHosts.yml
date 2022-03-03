@@ -1,0 +1,9 @@
+---
+- hosts: linux
+  gather_facts: no
+  tasks:
+  - name: Share "hosts" file
+    become: true
+    ansible.builtin.copy:
+      src: /etc/hosts
+      dest: /etc/hosts
