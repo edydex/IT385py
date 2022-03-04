@@ -1,0 +1,60 @@
+---
+- hosts: routers
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: Global Setup
+    ios_command:
+      commands:
+      - conf t
+      - no ip domain-lookup
+      - security password min-length 10
+      - service password-encryption
+      - banner motd $Warning! Words here!$
+      - login block-for 180 attempts 2 within 120
+      - line vty 0 4
+      - exec-timeout 5 0
+      - login local
+- hosts: CSR1
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: CSR1 Config
+    ios_command:
+      commands: 
+      - conf t
+      - hostname Router1
+      - ip route 192.168.101.0 255.255.255.0 192.168.0.12
+      - ip route 192.168.102.0 255.255.255.0 192.168.0.12
+      - int G2
+      - ip addr 192.168.51.1 255.255.255.0
+      - desc hopeitworks
+      - no shut
+      - exit
+      - int G3
+      - ip addr 192.168.52.1 255.255.255.0
+      - desc hopeitworks2
+      - no shut
+      - exit
+- hosts: CSR2
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: CSR1 Config
+    ios_command:
+      commands: 
+      - conf t
+      - hostname Router2
+      - ip route 192.168.51.0 255.255.255.0 192.168.0.11
+      - ip route 192.168.52.0 255.255.255.0 192.168.0.11
+      - int G2
+      - ip addr 192.168.101.1 255.255.255.0
+      - desc hopeitworks
+      - no shut
+      - exit
+      - int G3
+      - ip addr 192.168.102.1 255.255.255.0
+      - desc hopeitworks2
+      - no shut
+      - exit
+
