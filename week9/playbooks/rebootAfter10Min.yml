@@ -2,7 +2,7 @@
 - hosts: web
   gather_facts: yes
   tasks:
-  - name: Report facts
+  - name: Find time
     ansible.builtin.debug:
       var: ansible_facts["uptime_seconds"]
   - name: Reboot (not nice)
