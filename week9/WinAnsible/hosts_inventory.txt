@@ -1,0 +1,8 @@
+[win]
+win1    192.168.11.11
+
+[win:vars]
+ansible_user=username
+anible_password=password
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore

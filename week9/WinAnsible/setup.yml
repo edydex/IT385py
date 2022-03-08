@@ -1,0 +1,3 @@
+#before starting we need to install pywinrm: pip install pywinrm
+#ansible command to ping: ansible win -i hosts_inventory -m win_ping
+#

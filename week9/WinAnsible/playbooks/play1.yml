@@ -1,0 +1,28 @@
+---
+- hosts: win
+  gather_facts: no
+  tasks:
+  - name: Create user
+    ansible.windows.win_user:
+      name: olis
+      password: p00p
+      state: present
+      groups: 
+        - Users
+  - name: Install IIS
+    win_iis_website:
+      name: Default Web Site
+      physical_path: C:\Inetpub\WWWRoot
+  - win_iis_webapp:
+      site: Default Web Site
+      name: OrchardCMS
+      physical_path: C:\Inetpub\WWWRoot\Orchard
+  - name: Install 7-Zip
+    win_chocolatey:
+      name: 7-Zip
+      state: present
+  - name: Windows Update
+    win_updates:
+    category_names: CriticalUpdates
+    reboot: yes
+
