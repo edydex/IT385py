@@ -10,5 +10,5 @@
   
   - name: Save config
     copy:
-      content: "{{ output_config }}"
+      content: "{{ output_router.stdout[0] }}"
       dest: "/home/justincase/git/IT385/IT385py/week9/runConf{{ inventory_hostname }}.txt"
