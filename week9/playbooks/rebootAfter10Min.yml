@@ -5,7 +5,6 @@
   - name: Report facts
     ansible.builtin.debug:
       var: ansible_facts["uptime_seconds"]
-    when: ansible_facts["uptime_seconds"] > 600
   - name: Reboot (not nice)
     become: yes
     reboot:
