@@ -1,6 +1,6 @@
 Building configuration...
 
-Current configuration : 1157 bytes
+Current configuration : 1182 bytes
 version 15.4
 service timestamps debug datetime msec
 service timestamps log datetime msec
@@ -49,4 +49,5 @@ line vty 0 4
 line vty 5 15
  login local
  transport input ssh
+ntp server 192.168.0.250
 end
