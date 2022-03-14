@@ -1,6 +1,4 @@
 ---
 - hosts: routers
-  gather_facts: false
-  connection: local
   roles:
-      - backup
+    - backup
