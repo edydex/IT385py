@@ -1,0 +1,10 @@
+---
+- hosts: routers
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: Default Route setup
+    ios_command:
+      commands: 
+      - conf t
+      - snmp-server community GRCRocks! RO

@@ -1,0 +1,12 @@
+---
+- hosts: routers
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: Default Route setup
+    ios_command:
+      commands: 
+      - conf t
+      - hostname Router1
+      - ip route 0.0.0.0 0.0.0.0 192.168.0.250
+      - exit

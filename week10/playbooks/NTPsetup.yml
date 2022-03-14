@@ -1,0 +1,11 @@
+---
+- hosts: routers
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: Global Setup
+    ios_command:
+      commands:
+      - conf t
+      - set ntp server 192.168.0.250
+      - set ntp client enable
