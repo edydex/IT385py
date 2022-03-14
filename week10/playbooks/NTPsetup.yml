@@ -3,6 +3,6 @@
   ios_command:
     commands:
     - conf t
-    - set ntp server 192.168.0.250
-    - set ntp client enable
+    - ntp server 192.168.0.250
+    - ntp client enable
     - exit
