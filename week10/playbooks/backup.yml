@@ -1,14 +1,11 @@
 ---
-- hosts: routers
-  gather_facts: false
-  connection: local
-  tasks:
-  - name: Get config
-    ios_command:
-      commands: show run | exclude ! 
-    register: output_router
+- name: Get config
+  ios_command:
+    commands: show run | exclude ! 
+  register: output_router
   
-  - name: Save config
-    copy:
-      content: "{{ output_router.stdout[0] }}"
-      dest: "/home/justincase/git/IT385/IT385py/week10/runConf{{ inventory_hostname }}.txt"
+- name: Save config
+  copy:
+    content: "{{ output_router.stdout[0] }}"
+    dest: "/home/justincase/git/IT385/IT385py/week10/runConf{{ inventory_hostname }}.txt"
+# tasks file for backup

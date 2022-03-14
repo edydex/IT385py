@@ -4,3 +4,7 @@
   connection: local
   roles:
     - backup
+    - defaultRoute
+    - localPassword
+    - NTPsetup
+    - SNMPsetup
