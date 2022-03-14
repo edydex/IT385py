@@ -4,5 +4,4 @@
     commands:
     - conf t
     - ntp server 192.168.0.250
-    - ntp client enable
     - exit
